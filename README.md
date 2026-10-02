@@ -4,6 +4,8 @@
 
 Hasan Flayyih Abdullah · working manuscript, 1 October 2026 · not peer reviewed
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23099358.svg)](https://doi.org/10.5281/zenodo.23099358)
+
 A web application's server can only be reached through its interface, and the client
 that calls that interface is delivered in full to every browser. The client is
 therefore a recoverable specification of the interface, and this paper argues that for
@@ -166,7 +168,9 @@ named anywhere in the paper.
 
 Not peer reviewed. Not yet on arXiv — a first cs.CR submission requires endorsement
 from an established author in that archive, which is in progress. This repository is
-the citable form in the meantime.
+the citable form in the meantime, archived on Zenodo with the concept DOI
+[10.5281/zenodo.23099358](https://doi.org/10.5281/zenodo.23099358), which always
+resolves to the latest version.
 
 Corrections are welcome, including to the figures. Every one of them regenerates from
 the scripts above, so a disagreement can be settled rather than argued.
@@ -185,6 +189,8 @@ their projects and are redistributed under their own licenses — see
   title  = {The Client as Interface Specification: API Attack Surface
             Recovery for AI-Assisted Web Security Assessment},
   year   = {2026},
+  doi    = {10.5281/zenodo.23099358},
+  url    = {https://doi.org/10.5281/zenodo.23099358},
   note   = {Working manuscript, not peer reviewed}
 }
 ```

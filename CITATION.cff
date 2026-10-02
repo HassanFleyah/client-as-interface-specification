@@ -21,6 +21,14 @@ authors:
     email: hasanfleyah@gmail.com
 version: 1.0.2
 date-released: "2026-10-02"
+doi: 10.5281/zenodo.23099358
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23099358
+    description: Concept DOI, resolves to the latest version
+  - type: doi
+    value: 10.5281/zenodo.23099359
+    description: Version DOI for v1.0.2
 license: CC-BY-4.0
 license-url: "https://github.com/HassanFleyah/client-as-interface-specification/blob/main/LICENSE"
 repository-code: "https://github.com/HassanFleyah/client-as-interface-specification"
