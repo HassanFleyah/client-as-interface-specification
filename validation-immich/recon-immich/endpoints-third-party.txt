@@ -1,0 +1,4 @@
+# Labelled third-party by .claude/data/js-recon/third-party-paths.txt
+# or by host. Kept, not deleted: a wrong entry here silently shrinks
+# the surface, so this file is what you audit when a count looks low.
+

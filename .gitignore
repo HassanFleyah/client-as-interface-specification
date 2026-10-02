@@ -1,0 +1,15 @@
+# Working area — drafts, backups, diagnosis notes, one-off tooling.
+# Deliberately not part of the reproduction package.
+_working/
+
+# Client bundles are not redistributed. See README and the recall script.
+**/js-loot/
+*.tar.gz
+*.tgz
+
+# Local artefacts
+__pycache__/
+*.pyc
+*.b64
+.DS_Store
+Thumbs.db

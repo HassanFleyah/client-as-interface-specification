@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the manuscript below."
+title: >-
+  The Client as Interface Specification: API Attack Surface Recovery
+  for AI-Assisted Web Security Assessment
+abstract: >-
+  A web application's server can only be reached through its interface, and the
+  client that calls that interface is delivered in full to every browser. The
+  client is therefore a recoverable specification of the interface. This work
+  argues that for the vulnerability classes the OWASP API Security Top 10 ranks
+  highest, that specification is sufficient both to form a hypothesis and to
+  confirm it, and identifies a consequence for measurement: the specification is
+  what makes a request well-formed, and a malformed request is observationally
+  indistinguishable from an enforced authorization boundary. Includes a full
+  reproduction package measuring the extractor against published OpenAPI
+  specifications on three applications, two of them held out.
+type: software
+authors:
+  - family-names: Abdullah
+    given-names: Hasan Flayyih
+    email: hasanfleyah@gmail.com
+version: 1.0.0
+date-released: "2026-10-02"
+license:
+  - CC-BY-4.0
+  - MIT
+repository-code: "https://github.com/HassanFleyah/client-as-interface-specification"
+keywords:
+  - web application security
+  - API security
+  - attack surface enumeration
+  - client-side artefact analysis
+  - authorization testing
+  - broken object level authorization
+  - measurement validity
+  - reproducibility
+preferred-citation:
+  type: manuscript
+  title: >-
+    The Client as Interface Specification: API Attack Surface Recovery
+    for AI-Assisted Web Security Assessment
+  authors:
+    - family-names: Abdullah
+      given-names: Hasan Flayyih
+      email: hasanfleyah@gmail.com
+  year: 2026
+  month: 10
+  notes: Working manuscript; not peer reviewed.

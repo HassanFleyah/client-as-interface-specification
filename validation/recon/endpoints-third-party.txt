@@ -1,0 +1,11 @@
+# Labelled third-party by .claude/data/js-recon/third-party-paths.txt
+# or by host. Kept, not deleted: a wrong entry here silently shrinks
+# the surface, so this file is what you audit when a count looks low.
+https://reactrouter.com/v6/upgrading/future#v7_fetcherpersist
+https://reactrouter.com/v6/upgrading/future#v7_normalizeformmethod
+https://reactrouter.com/v6/upgrading/future#v7_partialhydration
+https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath
+https://reactrouter.com/v6/upgrading/future#v7_skipactionerrorrevalidation
+https://reactrouter.com/v6/upgrading/future#v7_starttransition
+https://www.gstatic.com/cv/js/sender/v1/cast_sender.js
+https://www.openstreetmap.org/search?query=

@@ -1,0 +1,14 @@
+# Labelled third-party by .claude/data/js-recon/third-party-paths.txt
+# or by host. Kept, not deleted: a wrong entry here silently shrinks
+# the surface, so this file is what you audit when a count looks low.
+https://api.giphy.com/v1/gifs
+https://api.giphy.com/v1/gifs/search
+https://api.giphy.com/v1/gifs/trending
+https://api.klipy.com/v2
+https://api.klipy.com/v2/featured
+https://api.klipy.com/v2/search
+https://chart-studio.plotly.com/settings
+https://npms.io/search?q=ponyfill.
+https://tenor.googleapis.com/v2
+https://tenor.googleapis.com/v2/featured
+https://tenor.googleapis.com/v2/search

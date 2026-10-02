@@ -1,0 +1,132 @@
+{
+ "measured": "2026-10-01",
+ "held_out_application": "Zulip Server 12.3",
+ "release_tag": "12.3",
+ "pooled_with_jellyfin": false,
+ "spec": {
+  "yaml_sha256": "15c17a2d53da572191f064722102d819c200c63a5ee7d0fe20da3dcdfd74cec5",
+  "json_sha256": "5fa7a3d0a9ffa8604fee85632a0b1928bd48de077029f4329c766e19063a8557",
+  "declared_paths": 115,
+  "distinct_normalised": 114,
+  "path_form": "bare; /api/v1 lives in servers:, with a .../json server entry for the test suite"
+ },
+ "client": {
+  "bundles": 64,
+  "bytes": 11321957,
+  "content_sha256": "635e3ed4ba0b037a65639c5c16895cc0870c8e6bd306bcb5e662c45e1913149e",
+  "source": "*/prod-static/serve/webpack-bundles/*.js",
+  "excluded": [
+   "starlight_help/dist/** (docs site)",
+   "zerver/openapi/javascript_examples.js (generated from the spec)"
+  ],
+  "archive_digest_not_used": "Jellyfin's archive re-compresses server-side and returned two hashes for one pinned URL"
+ },
+ "normalisation": {
+  "strip_prefix_from_extracted": [
+   "/json",
+   "/api/v1"
+  ],
+  "decided_before_measuring": true
+ },
+ "presence": {
+  "verbatim": "48/115",
+  "with_json_prefix": "44/115",
+  "literal_stem": "91/115",
+  "union": "91/115",
+  "union_pct": 0.791,
+  "distinct_present": 90,
+  "note": "Jellyfin reached 83.0% on the verbatim test alone; Zulip concatenates parameterised paths so the {param} form is never literal"
+ },
+ "extraction_ceiling": {
+  "value": "56/90",
+  "pct": 0.622,
+  "same_for_both_runs": true
+ },
+ "original": {
+  "run": "recon-zulip/",
+  "api_shaped_rows": 53,
+  "absolute_third_party": 12,
+  "relative": 41,
+  "matching_rows": 18,
+  "precision_as_emitted": 0.3396,
+  "precision_absolute_set_aside": 0.4146,
+  "distinct_matched": 13,
+  "recall_of_90_present": 0.1556,
+  "spec_coverage_of_114": 0.114
+ },
+ "repaired": {
+  "run": "recon-zulip-v2/",
+  "api_shaped_rows": 358,
+  "absolute_third_party": 108,
+  "relative": 250,
+  "matching_rows": 74,
+  "precision_as_emitted": 0.2067,
+  "precision_absolute_set_aside": 0.252,
+  "distinct_matched": 46,
+  "recall_of_90_present": 0.6222,
+  "spec_coverage_of_114": 0.4035,
+  "recall_equals_extraction_ceiling": true,
+  "mechanism": "Zulip wraps jQuery in its own channel module, so URL literals sit beside channel.post( rather than fetch(/axios/$.ajax; only 28 of 250 relative rows acquired request-construction evidence"
+ },
+ "no_strip_comparison": {
+  "original_precision_as_emitted": 0.0189,
+  "repaired_precision_as_emitted": 0.0084,
+  "note": "the strip decides the result, which is why it was fixed in advance"
+ },
+ "thresholds": {
+  "primary": {
+   "required": "recall >= 90% of ceiling",
+   "measured": "56/90 = 62.2% = 100% of the 62.2% ceiling",
+   "met": true
+  },
+  "secondary": {
+   "required": "precision falls <= 5 pts",
+   "measured": "34.0% -> 20.7% = -13.3 pts",
+   "met": false
+  },
+  "verdict": "partially generalized"
+ },
+ "verdict": "partially generalized (unchanged); secondary missed by 13.3 pts not 14.5",
+ "criterion": {
+  "primary": "repaired recall reaches >= 90% of the measured extraction ceiling",
+  "secondary": "as-emitted precision falls by <= 5 points",
+  "applied_uniformly_to": [
+   "jellyfin",
+   "zulip",
+   "immich"
+  ],
+  "note": "A ceiling-relative primary is the correct form: an absolute point-gain requirement would be imposed on a quantity bounded by a ceiling that differs per application."
+ },
+ "tier": {
+  "definition": "request-construction precision minus absent-evidence precision, assigned by classifier_rule.classify_endpoint over every relative-path record in the extraction",
+  "bar": "+20 points for the tier to be said to carry signal",
+  "request-construction": {
+   "rows": 28,
+   "precision": 0.286
+  },
+  "structural": {
+   "rows": 177,
+   "precision": 0.362
+  },
+  "none": {
+   "rows": 62,
+   "precision": 0.194
+  },
+  "router-definition": {
+   "rows": 0,
+   "precision": null
+  },
+  "spread": "+9.2 pts",
+  "carries_signal": false
+ },
+ "client_artefact": {
+  "js_files": 64,
+  "bytes": 11321957,
+  "content_sha256": "635e3ed4ba0b037a65639c5c16895cc0870c8e6bd306bcb5e662c45e1913149e",
+  "source": "zulip-server-12.3.tar.gz : */prod-static/serve/webpack-bundles/*.js",
+  "excluded_on_purpose": [
+   "starlight_help/dist/** - documentation site, not the app client",
+   "zerver/openapi/javascript_examples.js - derived from the specification itself; including it would inflate the join by construction"
+  ]
+ }
+}

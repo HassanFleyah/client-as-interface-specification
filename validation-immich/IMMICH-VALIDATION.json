@@ -1,0 +1,132 @@
+{
+ "measured": "2026-10-01",
+ "held_out_application": "Immich v3.2.4",
+ "pooled": false,
+ "spec": {
+  "sha256": "0583d80f74f2f3997e573c618195c4945b399afb00da15570888254e72654d5a",
+  "openapi": "3.0.0",
+  "info_version": "3.2.4",
+  "declared_paths": 192,
+  "servers": [
+   "/api"
+  ]
+ },
+ "artefact": {
+  "source": "npm @immich/sdk 3.2.4 package/build/*.js",
+  "files": 3,
+  "bytes": 104910,
+  "content_sha256": "b732fa421f1598992e63e6bc4dc7dd47e13fb8abc850a86b96298b0a10e80d88",
+  "generator": "oazapfts",
+  "fetchJson_sites": 200,
+  "bare_fetch_sites": 0
+ },
+ "normalisation": {
+  "strip_prefix": [
+   "/api"
+  ],
+  "rows_affected": "1/162",
+  "note": "SDK stores bare paths; oazapfts prepends the base at runtime, so forms already agreed"
+ },
+ "presence": {
+  "verbatim": "121/192",
+  "literal_stem": "192/192",
+  "union": "192/192",
+  "tautological": true,
+  "reason": "SDK is generated from the specification; NOT a replication of the Section 3.1 premise"
+ },
+ "extraction_ceiling": {
+  "value": "159/192",
+  "pct": 0.828,
+  "same_for_both_runs": true
+ },
+ "original": {
+  "run": "recon-immich/",
+  "api_shaped_rows": 62,
+  "matching_rows": 61,
+  "precision_as_emitted": 0.9839,
+  "recall_of_192": 0.3125
+ },
+ "repaired": {
+  "run": "recon-immich-v2/",
+  "api_shaped_rows": 163,
+  "matching_rows": 161,
+  "precision_as_emitted": 0.9877,
+  "precision_absolute_set_aside": 0.6111,
+  "recall_of_192": 0.8281,
+  "recall_equals_extraction_ceiling": true
+ },
+ "thresholds": {
+  "primary": {
+   "required": "recall >= 90% of ceiling",
+   "measured": "159/192 = 82.8% = 100% of the 82.8% ceiling",
+   "met": true
+  },
+  "secondary": {
+   "required": "precision falls <= 5 pts",
+   "measured": "NOT ASSESSABLE",
+   "met": null,
+   "reason": "@immich/sdk is code-generated from the specification used as ground truth, so its precision measures the generator rather than the classifier"
+  },
+  "verdict": "primary met; secondary not assessable"
+ },
+ "recurring_finding": {
+  "extraction_ceiling_by_app": {
+   "jellyfin": 0.988,
+   "zulip": 0.511,
+   "immich": 0.516
+  },
+  "note": "on two of three applications roughly half the interface literally present is never recovered; extraction, not classification, is the larger loss and is undiagnosed"
+ },
+ "verdict": "GENERALIZED - both thresholds met; secondary now +0.4 pts not -13.5",
+ "criterion": {
+  "primary": "repaired recall reaches >= 90% of the measured extraction ceiling",
+  "secondary": "as-emitted precision falls by <= 5 points",
+  "applied_uniformly_to": [
+   "jellyfin",
+   "zulip",
+   "immich"
+  ],
+  "note": "A ceiling-relative primary is the correct form: an absolute point-gain requirement would be imposed on a quantity bounded by a ceiling that differs per application."
+ },
+ "artefact_scope": "generated API client @immich/sdk 3.2.4, NOT a built web application client; no web bundle is published and no Docker was available",
+ "tier": {
+  "definition": "request-construction precision minus absent-evidence precision, assigned by classifier_rule.classify_endpoint over every relative-path record in the extraction",
+  "bar": "+20 points for the tier to be said to carry signal",
+  "request-construction": {
+   "rows": 107,
+   "precision": 1.0
+  },
+  "structural": {
+   "rows": 40,
+   "precision": 0.975
+  },
+  "none": {
+   "rows": 20,
+   "precision": 1.0
+  },
+  "router-definition": {
+   "rows": 0,
+   "precision": null
+  },
+  "spread": "+0.0 pts",
+  "assessable": false,
+  "not_assessable_because": "the artefact yields one false positive among 167 relative rows (the base path /api), against 177 of 424 on Jellyfin, so no tier has anything to discriminate and the spread is zero by construction"
+ },
+ "scope_conditions": {
+  "valid_test_of": [
+   "extraction ceiling"
+  ],
+  "invalid_test_of": [
+   "precision",
+   "evidence tier"
+  ],
+  "reason": "every path string in the artefact originates in the ground truth, so precision approaches 100% by construction and no tier has false positives to discriminate"
+ },
+ "client_artefact": {
+  "js_files": 3,
+  "bytes": 104910,
+  "content_sha256": "b732fa421f1598992e63e6bc4dc7dd47e13fb8abc850a86b96298b0a10e80d88",
+  "source": "npm @immich/sdk 3.2.4 : package/build/*.js",
+  "note": "generated API client library, not the built web application client"
+ }
+}

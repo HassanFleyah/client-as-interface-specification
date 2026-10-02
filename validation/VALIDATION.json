@@ -1,0 +1,180 @@
+{
+ "measured": "2026-10-01",
+ "target": {
+  "project": "Jellyfin",
+  "spec_version": "12.1.0",
+  "client_release": "v12.1",
+  "spec_url": "https://api.jellyfin.org/openapi/jellyfin-openapi-stable.json",
+  "spec_sha256": "6cc7386ebf8a52a7264969fa63a786dc746e9e37af573babf8b35bcfa1b5021d",
+  "client_url": "https://repo.jellyfin.org/files/server/portable/stable/v12.1/any/jellyfin_12.1.tar.gz",
+  "client_js_files": 986,
+  "client_js_bytes_approx": 28000000,
+  "spec_url_note": "stable alias; spec version recorded as 12.1.0",
+  "client_url_note": "version-pinned path; the latest-stable alias used during collection is mutable and should not be cited",
+  "client_bytes": 298343050,
+  "client_archive_sha256_unstable": true,
+  "client_archive_note": "The server re-compresses this archive, so its SHA-256 is not stable: two fetches of the same pinned URL gave 56c1c79a... and ae7f2d57.... Verify the extracted client by content digest instead.",
+  "client_content_sha256": "3b636f45363b8561becb0ddf09303ed117210e4ebef89bce235c0e53a0249436",
+  "client_content_note": "sha256 over the 986 extracted .js files, each contributing its repo-relative posix path then the sha256 of its bytes, ordered by path. 26,274,040 bytes total. Stable across re-compression."
+ },
+ "extractor": "js_recon.py (static, literal-string based)",
+ "results": {
+  "spec_paths": 294,
+  "spec_paths_normalised": 293,
+  "present_verbatim_in_client": 244,
+  "present_normalised": 243,
+  "reported_anywhere_in_output": 240,
+  "recall_any_row": 0.988,
+  "admitted_to_api_shaped_set": 23,
+  "recall_api_shaped": 0.095,
+  "api_shaped_relative_rows": 62,
+  "api_shaped_true_positives": 24,
+  "precision_raw": 0.387,
+  "router_path_false_positives": 35,
+  "precision_excluding_router_class": 0.889,
+  "unexplained_misses": 3,
+  "api_shaped_rows_total": 73,
+  "api_shaped_absolute_third_party_rows": 11,
+  "precision_including_absolute_rows": 0.3288,
+  "row_vs_path_note": "24 extracted rows map to 23 distinct normalised paths because /Users and /Users/ both appear; precision is computed over rows, recall over distinct paths",
+  "specification_coverage_all_declared": 0.0785
+ },
+ "note": "Precision against a published specification is a lower bound: a route absent from the spec is not necessarily absent from the server. The router-path class was identified post hoc from the misses.",
+ "repaired_classifier": {
+  "run": "recon-v2/",
+  "rule_shipped_as": "classifier_rule.py",
+  "precision_set_as_emitted": 0.4532,
+  "precision_absolute_excluded": 0.6237,
+  "recall_of_243_present": 0.988,
+  "recall_note": "equals the extraction ceiling already reported for the original run; not a classification gain",
+  "absolute_third_party_rows": {
+   "original": "11/73",
+   "repaired": "149/545",
+   "note": "the cost of the relaxed default"
+  },
+  "noise_sensitivity": "excluding strings containing template syntax, whitespace, markup characters or a static-asset extension before measuring changes precision by less than one point on both Jellyfin runs"
+ },
+ "three_application_evaluation": {
+  "criterion": {
+   "primary": "repaired recall reaches >= 90% of the measured extraction ceiling",
+   "secondary": "as-emitted precision falls by <= 5 points",
+   "applied_uniformly_to": [
+    "jellyfin",
+    "zulip",
+    "immich"
+   ],
+   "note": "A ceiling-relative primary is the correct form: an absolute point-gain requirement would be imposed on a quantity bounded by a ceiling that differs per application."
+  },
+  "applications": {
+   "jellyfin": {
+    "package": "validation/",
+    "precision_original": "24/73 = 32.9%",
+    "precision_repaired": "247/545 = 45.3%",
+    "ceiling": "240/243 = 98.8%",
+    "repaired_recall": "98.8%",
+    "share_of_ceiling": "100%",
+    "verdict": "generalized on both axes",
+    "tier_spread": "+40.1 pts"
+   },
+   "zulip": {
+    "package": "validation-zulip/",
+    "precision_original": "18/53 = 34.0%",
+    "precision_repaired": "74/358 = 20.7%",
+    "ceiling": "56/90 = 62.2%",
+    "repaired_recall": "62.2%",
+    "share_of_ceiling": "100%",
+    "verdict": "partially generalized - secondary missed by 13.3 points",
+    "tier_spread": "+9.2 pts"
+   },
+   "immich": {
+    "package": "validation-immich/",
+    "precision_original": "61/62 = 98.4%",
+    "precision_repaired": "161/163 = 98.8%",
+    "ceiling": "159/192 = 82.8%",
+    "repaired_recall": "82.8%",
+    "share_of_ceiling": "100%",
+    "verdict": "primary met; SECONDARY NOT ASSESSABLE",
+    "scope_condition": "@immich/sdk is code-generated from the specification used as ground truth, so its precision measures the generator, not the classifier. Valid test of ceiling and tier; invalid test of precision.",
+    "tier_spread": "+0.0 pts, NOT ASSESSABLE"
+   }
+  },
+  "generalized": "repaired recall equals 100% of the extraction ceiling on all three applications",
+  "did_not_generalize": [
+   "precision - application-dependent, -13.3 to +12.4 points",
+   "evidence tier - spread +40.1 on Jellyfin and +9.2 on Zulip against a +20 bar; not assessable on Immich"
+  ],
+  "extraction_ceiling_mechanism": "neither relative-path pattern spans a template interpolation whose contents are non-trivial; the plain-path character class excludes parentheses and the template pattern tolerates one interpolation under 60 chars with no closing brace. Jellyfin carries literal {itemId} braces and is unaffected.",
+  "proposed_fix": "interpolation-aware scanner; PROPOSED AND NOT APPLIED. Recorded prediction: Immich ceiling 82.8% -> ~99%, Jellyfin essentially unchanged.",
+  "tier": {
+   "definition": "request-construction precision minus absent-evidence precision, assigned by classifier_rule.classify_endpoint over every relative-path record in the extraction",
+   "bar": "+20 points for the tier to be said to carry signal",
+   "jellyfin": {
+    "request-construction": {
+     "rows": 112,
+     "precision": 0.911
+    },
+    "structural": {
+     "rows": 33,
+     "precision": 0.515
+    },
+    "none": {
+     "rows": 251,
+     "precision": 0.51
+    },
+    "router-definition": {
+     "rows": 28,
+     "precision": 0.0
+    },
+    "spread": "+40.1 pts",
+    "carries_signal": true
+   },
+   "zulip": {
+    "request-construction": {
+     "rows": 28,
+     "precision": 0.286
+    },
+    "structural": {
+     "rows": 177,
+     "precision": 0.362
+    },
+    "none": {
+     "rows": 62,
+     "precision": 0.194
+    },
+    "router-definition": {
+     "rows": 0,
+     "precision": null
+    },
+    "spread": "+9.2 pts",
+    "carries_signal": false
+   },
+   "immich": {
+    "request-construction": {
+     "rows": 107,
+     "precision": 1.0
+    },
+    "structural": {
+     "rows": 40,
+     "precision": 0.975
+    },
+    "none": {
+     "rows": 20,
+     "precision": 1.0
+    },
+    "router-definition": {
+     "rows": 0,
+     "precision": null
+    },
+    "spread": "+0.0 pts",
+    "assessable": false,
+    "not_assessable_because": "the artefact yields one false positive among 167 relative rows (the base path /api), against 177 of 424 on Jellyfin, so no tier has anything to discriminate and the spread is zero by construction"
+   },
+   "conclusion": "strong signal on one of the two assessable applications and none on the other; not a general operating point without per-application calibration"
+  }
+ },
+ "client_artefact": {
+  "js_files": 986,
+  "bytes": 26274040,
+  "content_sha256": "3b636f45363b8561becb0ddf09303ed117210e4ebef89bce235c0e53a0249436"
+ }
+}
