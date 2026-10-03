@@ -7,6 +7,9 @@ _working/
 *.tar.gz
 *.tgz
 
+# Intermediate output of the PDF build; paper.pdf is the published artefact.
+manuscript.pdf
+
 # Local artefacts
 __pycache__/
 *.pyc

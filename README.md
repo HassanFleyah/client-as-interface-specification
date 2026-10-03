@@ -1,6 +1,6 @@
 # The Client as Interface Specification
 
-**API attack surface recovery for AI-assisted web security assessment**
+**API attack surface recovery and the validity of negative results in web security assessment**
 
 Hasan Flayyih Abdullah · working manuscript, 1 October 2026 · not peer reviewed
 
@@ -19,7 +19,7 @@ boundary.** A procedure that recovers paths without recovering identifier encodi
 and body schemas therefore produces negative results that are void rather than
 informative, and cannot tell that this has happened.
 
-📄 **[paper.pdf](paper.pdf)** · 15 pages · source in [manuscript.md](manuscript.md)
+📄 **[paper.pdf](paper.pdf)** · 18 pages · source in [manuscript.md](manuscript.md)
 
 ---
 
@@ -187,7 +187,8 @@ their projects and are redistributed under their own licenses — see
 @misc{abdullah2026client,
   author = {Hasan Flayyih Abdullah},
   title  = {The Client as Interface Specification: API Attack Surface
-            Recovery for AI-Assisted Web Security Assessment},
+            Recovery and the Validity of Negative Results in Web
+            Security Assessment},
   year   = {2026},
   doi    = {10.5281/zenodo.23099358},
   url    = {https://doi.org/10.5281/zenodo.23099358},

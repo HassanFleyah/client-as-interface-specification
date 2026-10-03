@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this work, please cite the manuscript below."
 title: >-
   The Client as Interface Specification: API Attack Surface Recovery
-  for AI-Assisted Web Security Assessment
+  and the Validity of Negative Results in Web Security Assessment
 abstract: >-
   A web application's server can only be reached through its interface, and the
   client that calls that interface is delivered in full to every browser. The
@@ -19,16 +19,13 @@ authors:
   - family-names: Abdullah
     given-names: Hasan Flayyih
     email: hasanfleyah@gmail.com
-version: 1.0.2
-date-released: "2026-10-02"
+version: 1.0.3
+date-released: "2026-10-03"
 doi: 10.5281/zenodo.23099358
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23099358
     description: Concept DOI, resolves to the latest version
-  - type: doi
-    value: 10.5281/zenodo.23099359
-    description: Version DOI for v1.0.2
 license: CC-BY-4.0
 license-url: "https://github.com/HassanFleyah/client-as-interface-specification/blob/main/LICENSE"
 repository-code: "https://github.com/HassanFleyah/client-as-interface-specification"
@@ -45,7 +42,7 @@ preferred-citation:
   type: unpublished
   title: >-
     The Client as Interface Specification: API Attack Surface Recovery
-    for AI-Assisted Web Security Assessment
+    and the Validity of Negative Results in Web Security Assessment
   authors:
     - family-names: Abdullah
       given-names: Hasan Flayyih
