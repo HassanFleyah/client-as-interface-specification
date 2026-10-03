@@ -26,6 +26,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.23099358
     description: Concept DOI, resolves to the latest version
+  - type: doi
+    value: 10.5281/zenodo.23116106
+    description: Version DOI for v1.0.3
 license: CC-BY-4.0
 license-url: "https://github.com/HassanFleyah/client-as-interface-specification/blob/main/LICENSE"
 repository-code: "https://github.com/HassanFleyah/client-as-interface-specification"
